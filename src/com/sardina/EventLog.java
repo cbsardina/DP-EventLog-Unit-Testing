@@ -14,13 +14,14 @@ public class EventLog extends Event{
     private List<Event> eventList = new ArrayList<>();
 
     public boolean addEvent (Event event) throws IllegalArgumentException {
-            if (event == null  || event.action == null || event.name == null) {
-                System.out.println("IllegalArgumentException Thrown! Event, action, or name are null or missing.");
-                throw new IllegalArgumentException();
-            }
+            if (((event.action.equals("Face2Face"))) || ((event.action.equals("PhoneCall"))) ||
+                    ((event.action.equals("TextMessaging"))) || ((event.action.equals("Unknown")))) {
                 System.out.println("Event Name: " + event.name + ", Event Action: " + event.action + ".");
                 eventList.add(event);
                 return true;
+            }
+                System.out.println("Error: Action options are: \'Face2Face\', \'PhoneCall\', \'TextMessaging\', or \'Unknown\'." );
+                throw new IllegalArgumentException();
     }
 
     public int getNumEvents() {
@@ -29,4 +30,12 @@ public class EventLog extends Event{
 
     public EventLog(){} //initializes the list
 
+    @Override
+    public String toString() {
+        return "EventLog{" +
+                "eventList=" + eventList +
+                ", name='" + name + '\'' +
+                ", action='" + action + '\'' +
+                '}';
+    }
 }

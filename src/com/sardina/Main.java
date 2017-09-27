@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
 
     Event oneOclockMeeting = new Event();
-        oneOclockMeeting.setAction("Meeting in office");
+        oneOclockMeeting.setAction("Face2Face");
         oneOclockMeeting.setName("1pm meeting");
 
     EventLog eventLog = new EventLog();
