@@ -6,8 +6,15 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Event oneEvent = new Event();
+    Event oneOclockMeeting = new Event();
+        oneOclockMeeting.setAction("Meeting in office");
+        oneOclockMeeting.setName("1pm meeting");
 
+    EventLog eventLog = new EventLog();
+        try {
+            eventLog.addEvent(oneOclockMeeting);
+        } catch (IllegalArgumentException ex) {
+            ex.printStackTrace(); }
 
 
     }

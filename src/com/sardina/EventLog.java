@@ -4,36 +4,27 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EventLog {
+public class EventLog extends Event{
 
-    String name;
-    String action;
-
-    public void Event(String name, String action) {
-        this.name = name;
-        this.action = action;
+    public EventLog(List<Event> eventList) {
+        this.eventList = eventList;
     }
 
-    public String getName() { return name; }
-
-    public void setName(String name) { this.name = name; }
-
-    public String getAction() { return action; }
-
-    public void setAction(String action) { this.action = action; }
-
-//ADD METHODS AND VARIABLES
+    //ADD METHODS AND VARIABLES
     private List<Event> eventList = new ArrayList<>();
 
     public boolean addEvent (Event event) throws IllegalArgumentException {
-        if(event == null || this.name == null || this.action == null) {
-            throw new IllegalArgumentException();
-        }
-        return true;
+            if (event == null  || event.action == null || event.name == null) {
+                System.out.println("IllegalArgumentException Thrown! Event, action, or name are null or missing.");
+                throw new IllegalArgumentException();
+            }
+                System.out.println("Event Name: " + event.name + ", Event Action: " + event.action + ".");
+                eventList.add(event);
+                return true;
     }
 
     public int getNumEvents() {
-        return 5; //returns the size of the list
+        return eventList.size();
     }
 
     public EventLog(){} //initializes the list
